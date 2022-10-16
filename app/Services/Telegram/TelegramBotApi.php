@@ -16,20 +16,6 @@ final class TelegramBotApi
     /**
      * @throws CustomTelegramApiException
      */
-//    public static function sendMessage(string $token, int $chat_id, string $text): bool
-//    {
-//        try {
-//            Http::get(self::HOST . $token . '/sendMessage', [
-//                'chat_id' => $chat_id,
-//                'text' => $text
-//            ]);
-//
-//            return true;
-//        } catch (Exception $e) {
-//            throw new CustomTelegramApiException();
-//        }
-//    }
-
 
     public static function sendMessage(array $args): bool
     {
