@@ -31,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
         Model::preventLazyLoading(!app()->isProduction());
         Model::preventSilentlyDiscardingAttributes(!app()->isProduction());
 
+
+        // 
         DB::whenQueryingForLongerThan(500, function (Connection $connection) {
             // Notify development team...
             //  Отправить уведомление если запрос выполняется больше чем указано милисекунд (ЕСЛИ ДОЛГО)
@@ -39,6 +41,7 @@ class AppServiceProvider extends ServiceProvider
                 ->channel('telegram')
                 ->debug('whenQueryingForLongerThan: ' . $connection->query()->toSql());
         });
+
 
         $kernel = app(kernel::class);
         $kernel->whenRequestLifecycleIsLongerThan(
